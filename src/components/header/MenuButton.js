@@ -4,7 +4,7 @@ export default function MenuButton({ setNavbarOpen }) {
   return (
     <button
       type="button"
-      class="cursor-pointer leading-none px-2 py-1 border border-solid rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+      className="cursor-pointer leading-none px-2 py-1 border border-solid rounded bg-transparent block lg:hidden outline-none focus:outline-none"
       onClick={() => setNavbarOpen(true)}
     >
       <svg viewBox="0 0 100 70" width="20" height="24" fill=" #334155">
