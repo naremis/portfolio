@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.2",
+    "embla-carousel-autoplay": "^7.0.1",
+    "embla-carousel-react": "^7.0.1",
     "next": "12.2.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sharp": "^0.30.7"
   },
   "devDependencies": {

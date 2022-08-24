@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Image from "next/image";
-import logo from "../../assets/logo.svg";
-import menuIcon from "../../assets/menu.svg";
-import closeIcon from "../../assets/close.png";
+
 import NavigationBar from "./NavigationBar";
 import SideNavigation from "./SideNavigation";
 const menuItems = [
