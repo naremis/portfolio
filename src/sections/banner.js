@@ -30,7 +30,7 @@ const Banner = () => {
           </button>
         </div>
       </div>
-      <div className="md:w-3/6 w-full 	float-right	">
+      <div className="md:w-3/6 w-full justify-end flex	float-right	">
         <Image
           src={bannerImage}
           height={1000}
