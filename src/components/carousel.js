@@ -2,8 +2,6 @@ import React, { useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-// const slides = Array.from(Array(SLIDE_COUNT).keys());
-
 const Carousel = ({ content }) => {
   const autoplay = useRef(
     Autoplay(
@@ -16,8 +14,8 @@ const Carousel = ({ content }) => {
       loop: true,
       slidesToScroll: 1,
       skipSnaps: false,
-    }
-    // [autoplay.current]
+    },
+    [autoplay.current]
   );
   const contentByIndex = (index) => content[index % content.length];
 
@@ -28,25 +26,27 @@ const Carousel = ({ content }) => {
           {content.map((element, index) => (
             <div
               key={contentByIndex(index).id}
-              className="md:px-4 md:mx-2 pt-20   md:min-w-1/3  min-w-full test-class"
+              className="md:px-4 md:mx-2 pt-20 md:min-w-1/3  min-w-full"
             >
-              <i
-                className={` ${
-                  contentByIndex(index).icon
-                }   text-5xl  font-normal text-orange-600 `}
-              ></i>
-              <h5 className="text-xl font-bold opacity-60 mt-10 tracking-tight 	  ">
-                {contentByIndex(index).title}
-              </h5>
-              <p className="text-slate-500 mt-3  tracking-tight">
-                {contentByIndex(index).content}
-              </p>
+              <div className="w-11/12	mx-auto">
+                <i
+                  className={` ${
+                    contentByIndex(index).icon
+                  }   md:text-5xl text-6xl  font-normal text-orange-600 `}
+                ></i>
+                <h5 className="text-xl font-bold opacity-60 mt-12 md:mt-10 tracking-tight 	  ">
+                  {contentByIndex(index).title}
+                </h5>
+                <p className="text-slate-500 mt-3  tracking-tight">
+                  {contentByIndex(index).content}
+                </p>
+              </div>
             </div>
           ))}
         </div>
         <div
           key="section-shadow"
-          className=" top-0 absolute bottom-0 w-full md:w-28%	mx-auto left-0 right-0 h-full  shadow-gray-500 mix-blend-darken shadow-2xl"
+          className=" top-0 absolute bottom-0 w-full md:w-28%	mx-auto left-0 right-0 h-full shadow-gray-500 mix-blend-darken shadow-2xl"
         >
           <span className="block m-auto rounded center w-20 h-1 bg-orange-500 mb-20 "></span>
         </div>
