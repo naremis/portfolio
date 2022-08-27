@@ -23,9 +23,9 @@ const Technologies = () => {
         </svg>
       </div>
       {/* left section of the page  */}
-      <div className="md:w-3/6 w-full bg-gray-100 float-left px-20 md:px-40  h-96">
+      <div className="md:w-3/6 w-full bg-gray-100 float-left md:px-20 md:px-40  h-96">
         {/* card with image and description */}
-        <div className="w-96  relative md:bottom-20 bottom-48 pt-5 ">
+        <div className="w-96  relative md:bottom-20 bottom-48 pt-5 m-auto ">
           {/* card header image */}
           <div className="h-72 relative">
             <Image

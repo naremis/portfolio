@@ -17,6 +17,12 @@ module.exports = {
       boxShadow: {
         leftShadow: "-2px 0 8px rgb(0 0 0 / 15%)",
       },
+      minWidth: {
+        "1/3": "33.333%",
+      },
+      width: {
+        "28%": "28%",
+      },
     },
   },
   plugins: [],
