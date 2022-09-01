@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import logo from '../../assets/logo.svg';
-import MenuButton from './MenuButton';
+import React, { useState } from "react";
+import Image from "next/image";
+import logo from "../../assets/logo.svg";
+import MenuButton from "./MenuButton";
 
 export default function NavigationBar({ setNavbarOpen, menuItems }) {
   return (
-    <nav className="z-10 top-0 fixed  w-full flex flex-wrap items-center justify-between px-2  bg-white shadow">
+    <nav className="z-50 top-0 fixed  w-full flex flex-wrap items-center justify-between px-2  bg-white shadow">
       <div className="w-full">
         <div className="block">
           <div className="flex items-center">

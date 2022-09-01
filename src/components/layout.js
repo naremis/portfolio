@@ -5,7 +5,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <main className="header relative pt-16 items-center h-screen table w-screen">
+      <main className="header relative pt-16 items-center h-screen table w-full">
         {children}
       </main>
       <Footer />

@@ -1,42 +1,57 @@
 import React from "react";
 import Image from "next/image";
-import bannerImage from "../assets/header.jpg";
-
+// import bannerImage from "../assets/header.jpg";
+import bannerImage from "../assets/banner.svg";
+// import testBannerBg from "../assets/background.svg";
 const Banner = () => {
   return (
-    <section className="table w-full 	">
-      <div className="md:w-3/6 w-full float-left	md:pt-24 md:pl-10 bg-white md:pr-32 p-10  md:text-left text-center	">
-        <h1 className="md:text-5xl text-4xl font-semibold	text-slate-700		">
-          Build your audience & grow your business online smarter
-        </h1>
-        <h2 className="md:mt-4 mt-10 text-lg leading-relaxed opacity-70	 ">
-          Get your blood tests delivered at let home collect sample from the
-          victory of the managements that supplies best design system guidelines
-          ever.
-        </h2>
-        <div className="block mt-6">
-          <input
-            type="text"
-            id="email"
-            className="bg-slate-100	text-gray-900 text-base md:w-4/6 w-full rounded-md  px-5 h-12	  active:outline-none"
-            placeholder="Enter Email address"
-            required
+    <section className="table w-full   ">
+      <div className="md:w-7/12 w-full float-right mx-auto md:min-h-90  md:pt-10 pt-5">
+        <div className="md:block hidden">
+          {" "}
+          <Image
+            src={bannerImage}
+            layout="fixed"
+            alt="Banner Image"
+            height={460}
+            width={780}
           />
-          <button
-            type="button"
-            className=" text-white bg-gray-600 hover:bg-gray-700 w-full md:w-auto md:mt-0 mt-3 leading-relaxed float-right rounded-md  text-lg px-10 h-12	"
-          >
-            Subscribe
-          </button>
+        </div>
+        <div className="block md:hidden pb-6">
+          <Image src={bannerImage} layout="responsive" alt="Banner Image" />
         </div>
       </div>
-      <div className="md:w-3/6 w-full justify-end flex	float-right	">
-        <Image
-          src={bannerImage}
-          height={1000}
-          width={1200}
-          alt="Banner Image"
-        />
+      <div className="md:w-5/12 w-full md:float-left md:text-left text-center min-h-90  md:pl-6  pt-36 mx-auto	">
+        <div className="md:min-w-lg	md:max-w-lg mx-auto px-5 md:px-0 	">
+          <h1 className="md:text-5xl text-4xl font-semibold	text-slate-700		">
+            Build your audience & grow your business online smarter
+          </h1>
+          <h2 className="mt-4 md:text-lg text-base leading-relaxed opacity-70	 ">
+            Get your blood tests delivered at let home collect sample from the
+            victory of the managements that supplies best design system
+            guidelines ever.
+          </h2>
+          <div className="block mt-8 md:flex">
+            <div className="md:w-4/6 w-full">
+              <input
+                type="text"
+                id="email"
+                className="bg-gray-200 placeholder-gray-500 text-base px-4  rounded-md w-full h-12   focus:outline-0 focus:border focus:bg-gray-100	 focus:border-gray-500"
+                placeholder="Enter Email address"
+                required
+              />
+            </div>
+
+            <div className="md:w-2/6 w-full md:pl-2 md:mt-0 mt-4">
+              <button
+                type="button"
+                className=" text-white bg-orange-600 hover:bg-orange-700 w-full rounded-md h-12	"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
