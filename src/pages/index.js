@@ -5,6 +5,7 @@ import ServicesTest from "../sections/service-test";
 import Services from "../sections/services";
 import WhyUsSection from "../sections/why-us";
 import Technologies from "../sections/technologies";
+import Team from "../sections/team";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Technologies />
       <WhyUsSection />
       <Services />
+      <Team />
     </Layout>
   );
 }
