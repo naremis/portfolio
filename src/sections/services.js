@@ -4,15 +4,18 @@ import { SERVICES_CONTENT } from "./constants";
 
 const Services = () => {
   return (
-    <section className="table relative w-full bg-gray-100 md:px-48 px-10 md:pt-20 pb-44 text-center  ">
-      <div className="md:pb-4 pb-10 opacity-70">
-        <h1 className="md:pb-2 pb-6 text-4xl font-semibold ">Our Services</h1>
+    <section
+      id="services"
+      className="table relative w-full bg-gray-100 md:px-48 px-5 md:pt-6 pt-8 md:pb-28 pb-8 text-center"
+    >
+      <div className="pb-8 opacity-70">
+        <h1 className="pb-4 text-4xl font-semibold">Our Services</h1>
         <p className=" text-lg	  ">
           We provide the best in class services for our customer
         </p>
       </div>
 
-      <div className="grid bg-gray-100 w-full  md:grid-cols-3 grid-cols-1 gap-3">
+      <div className="grid bg-gray-100 w-full  md:grid-cols-3 grid-cols-1 md:gap-3 gap-5">
         {SERVICES_CONTENT.map((service) => (
           <div
             key={service.id}

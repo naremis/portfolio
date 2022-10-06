@@ -6,6 +6,7 @@ import Services from "../sections/services";
 import WhyUsSection from "../sections/why-us";
 import Technologies from "../sections/technologies";
 import Team from "../sections/team";
+import Portfolio from "../sections/portfolio";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <WhyUsSection />
       <Services />
       <Team />
+      <Portfolio />
     </Layout>
   );
 }

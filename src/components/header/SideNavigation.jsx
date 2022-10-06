@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import logo from "../../assets/logo.svg";
 import closeIcon from "../../assets/close.png";
+import { Link as MenuLink } from "react-scroll";
 
 export default function SideNavigation({
   navbarOpen,
@@ -12,13 +13,14 @@ export default function SideNavigation({
     <>
       {/* Background Layer When Side Nav is Open */}
       <div
-        className={`bg-black opacity-20 	h-full z-10 w-full absolute ${
+        onClick={() => setNavbarOpen(false)}
+        className={`bg-black opacity-20 h-full z-20 w-full fixed ${
           navbarOpen ? "block md:hidden" : "hidden"
         }`}
       ></div>
       {/* Side Navigation Bar */}
       <div
-        className={`h-full  ease-in-nav duration-300  bg-white fixed w-0 shadow-leftShadow z-10 md:hidden block top-0 right-0  ${
+        className={`h-full  ease-in-nav duration-300  bg-white fixed w-0 shadow-leftShadow z-50 md:hidden block top-0 right-0  ${
           navbarOpen ? "w-80" : "w-0 "
         } `}
       >
@@ -40,23 +42,23 @@ export default function SideNavigation({
         {/* menu items */}
         <div>
           {menuItems.map(({ path, label }, i) => (
-            <a
-              key={i}
-              href={path}
-              className="text-slate-900  block pl-7 py-4  text-base font-normal"
+            <MenuLink
+              spy={true}
+              offset={-60}
+              smooth={true}
+              key={path}
+              onSetActive={(e) => {
+                setNavbarOpen(false);
+              }}
+              duration={0}
+              to={path}
+              className="text-slate-900 block pl-7 py-4 text-base font-normal "
+              activeClass=" bg-gray-100 border-l-4 border-l-orange-400  py-4 pl-6 font-semibold	   "
             >
               {label}
-            </a>
+            </MenuLink>
           ))}
         </div>
-        {/* selected menu item */}
-        <a
-          key={"d"}
-          href={"path"}
-          className="text-slate-900 bg-gray-100 border-l-4 border-l-orange-400	 block pl-7 py-4  text-base font-normal"
-        >
-          About
-        </a>
       </div>
     </>
   );

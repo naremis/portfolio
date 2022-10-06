@@ -8,20 +8,24 @@ const menuItems = [
     label: "Home",
   },
   {
+    path: "tech",
+    label: "Tech",
+  },
+  {
+    path: "whynaremis",
+    label: "About",
+  },
+  {
     path: "services",
     label: "Services",
   },
   {
-    path: "features",
-    label: "Features",
+    path: "team",
+    label: "Team",
   },
   {
-    path: "blog",
-    label: "Blog",
-  },
-  {
-    path: "login",
-    label: "Login",
+    path: "portfolio",
+    label: "Portfolio",
   },
 ];
 

@@ -5,7 +5,7 @@ import Autoplay from "embla-carousel-autoplay";
 const Carousel = ({ content }) => {
   const autoplay = useRef(
     Autoplay(
-      { delay: 3000, stopOnInteraction: false },
+      { delay: 300000, stopOnInteraction: false },
       (emblaRoot) => emblaRoot.parentElement
     )
   );
@@ -20,24 +20,25 @@ const Carousel = ({ content }) => {
   const contentByIndex = (index) => content[index % content.length];
 
   return (
-    <div className="embla md:px-20">
-      <div className=" h-96 md:mx-10	overflow-hidden" ref={viewportRef}>
-        <div className="embla__container">
+    <div className="embla md:px-0 px-2">
+      <div className="h-96 overflow-hidden" ref={viewportRef}>
+        <div className="embla__container  ">
           {content.map((element, index) => (
             <div
               key={contentByIndex(index).id}
-              className="md:px-4 md:mx-2 pt-20 md:min-w-1/3  min-w-full"
+              className="pt-20 md:min-w-1/3 min-w-full block "
             >
-              <div className="w-11/12	mx-auto">
+              <div className="mx-auto h-full break-all md:px-4">
                 <i
                   className={` ${
                     contentByIndex(index).icon
-                  }   md:text-5xl text-6xl  font-normal text-orange-600 `}
+                  }   md:text-5xl text-6xl  font-normal text-orange-600  `}
                 ></i>
-                <h5 className="text-xl font-bold opacity-60 mt-12 md:mt-10 tracking-tight 	  ">
+
+                <h5 className="text-xl font-bold mt-12 md:mt-10 text-white">
                   {contentByIndex(index).title}
                 </h5>
-                <p className="text-slate-500 mt-3  tracking-tight">
+                <p className="font-thin mt-3 text-slate-200">
                   {contentByIndex(index).content}
                 </p>
               </div>
@@ -46,9 +47,9 @@ const Carousel = ({ content }) => {
         </div>
         <div
           key="section-shadow"
-          className=" top-0 absolute bottom-0 w-full md:w-28%	mx-auto left-0 right-0 h-full shadow-gray-500 mix-blend-darken shadow-2xl"
+          className=" top-0 absolute bottom-0 w-full md:w-1/3	mx-auto left-0 right-0 h-full shadow-gray-500  shadow-xl"
         >
-          <span className="block m-auto rounded center w-20 h-1 bg-orange-500 mb-20 "></span>
+          <span className="block m-auto rounded center w-20 h-1 bg-orange-500 mt-2 mb-20 "></span>
         </div>
       </div>
     </div>

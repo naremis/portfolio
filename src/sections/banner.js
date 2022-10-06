@@ -5,8 +5,8 @@ import bannerImage from "../assets/banner.svg";
 // import testBannerBg from "../assets/background.svg";
 const Banner = () => {
   return (
-    <section className="table w-full   ">
-      <div className="md:w-7/12 w-full float-right mx-auto md:min-h-90  md:pt-10 pt-5">
+    <section id="home" className="table w-full -mt-16 pt-16">
+      <div className="md:w-7/12 w-full float-right mx-auto md:min-h-90  md:pt-10 pt-5 ">
         <div className="md:block hidden">
           {" "}
           <Image
@@ -23,15 +23,15 @@ const Banner = () => {
       </div>
       <div className="md:w-5/12 w-full md:float-left md:text-left text-center min-h-90  md:pl-6  pt-36 mx-auto	">
         <div className="md:min-w-lg	md:max-w-lg mx-auto px-5 md:px-0 	">
-          <h1 className="md:text-5xl text-4xl font-semibold	text-slate-700		">
+          <h1 className="md:text-5xl text-4xl font-semibold	text-slate-700">
             Build your audience & grow your business online smarter
           </h1>
-          <h2 className="mt-4 md:text-lg text-base leading-relaxed opacity-70	 ">
+          <h2 className="md:text-lg mt-4 text-base leading-relaxed opacity-70">
             Get your blood tests delivered at let home collect sample from the
             victory of the managements that supplies best design system
             guidelines ever.
           </h2>
-          <div className="block mt-8 md:flex">
+          <div className="block md:mt-8 mt-4 md:flex">
             <div className="md:w-4/6 w-full">
               <input
                 type="text"

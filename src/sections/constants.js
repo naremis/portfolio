@@ -67,10 +67,41 @@ export const WHY_US_CONTENT = [
     icon: "fa-solid fa-gear",
   },
   {
-    id: "why_us_03",
+    id: "why_us_04",
     title: "We are Affordable",
     content:
       "We have a stellar track record providing CTO-level consulting, working alongside top engineering teams and creating best-in-class dev tools. Rest assured that your product has a solid technical foundation.",
     icon: "fa-solid fa-hand-holding-dollar",
+  },
+];
+
+export const TECH_CONTENT = [
+  {
+    id: "tech_01",
+    title: "CSS Components",
+    content:
+      "Notus NextJS comes with a huge number of Fully Coded CSS components.",
+    icon: "fas fa-sitemap",
+  },
+  {
+    id: "tech_02",
+    title: "CSS Components",
+    content:
+      "Notus NextJS comes with a huge number of Fully Coded CSS components.",
+    icon: "fas fa-sitemap",
+  },
+  {
+    id: "tech_03",
+    title: "CSS Components",
+    content:
+      "Notus NextJS comes with a huge number of Fully Coded CSS components.",
+    icon: "fas fa-sitemap",
+  },
+  {
+    id: "tech_04",
+    title: "CSS Components",
+    content:
+      "Notus NextJS comes with a huge number of Fully Coded CSS components.",
+    icon: "fas fa-sitemap",
   },
 ];

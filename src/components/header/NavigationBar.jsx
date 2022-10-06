@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import logo from "../../assets/logo.svg";
+import { Link as MenuLink } from "react-scroll";
 import MenuButton from "./MenuButton";
 
 export default function NavigationBar({ setNavbarOpen, menuItems }) {
+  const [selected, setSelected] = useState(menuItems[0].path);
+  const calcDistance = () => {
+    return `${menuItems.findIndex((e) => e.path === selected) * 4.5}rem`;
+  };
   return (
-    <nav className="z-50 top-0 fixed  w-full flex flex-wrap items-center justify-between px-2  bg-white shadow">
+    <nav className="z-20 top-0 fixed  w-full flex flex-wrap items-center justify-between px-2  bg-white shadow">
       <div className="w-full">
         <div className="block">
           <div className="flex items-center">
@@ -20,18 +25,28 @@ export default function NavigationBar({ setNavbarOpen, menuItems }) {
             </div>
             {/* list of menu items */}
             <div className="hidden md:block">
-              <div className=" mt-4 pt-1 items-baseline space-x-4">
+              <div className="mt-4 grid grid-cols-6 pt-1 items-baseline gap-2 mr-6">
                 {menuItems.map(({ path, label }, i) => (
-                  <a
-                    key={i}
-                    href={path}
-                    className="text-grey px-3 font-normal "
-                    aria-current="page"
-                  >
-                    {label}
-                  </a>
+                  <div className=" text-center w-16" key={path}>
+                    <MenuLink
+                      spy={true}
+                      offset={-64}
+                      smooth={true}
+                      duration={600}
+                      to={path}
+                      onSetActive={setSelected}
+                      className="text-grey font-normal cursor-pointer"
+                      activeClass="font-semibold   "
+                    >
+                      {label}
+                    </MenuLink>
+                  </div>
                 ))}
               </div>
+              <span
+                className="block relative transition-all	ml-4				ease-in-out		 rounded mt-1 h-1  w-10 bg-orange-500 "
+                style={{ left: calcDistance() }}
+              ></span>
             </div>
             <div className="mr-3 flex md:hidden ">
               <MenuButton setNavbarOpen={setNavbarOpen} />
