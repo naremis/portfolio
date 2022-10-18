@@ -105,3 +105,20 @@ export const TECH_CONTENT = [
     icon: "fas fa-sitemap",
   },
 ];
+
+export const BUDGET_OPTIONS = [
+  "Below $500",
+  "less than 5k$",
+  "$500 to $5k",
+  "$5k to $25k",
+  "Above $25k",
+];
+
+export const SERVICES_OPTIONS = [
+  "UI/UX Design",
+  "Web Development",
+  "Mobile App Development",
+  "E-Commerce & CMS",
+  "Cloud Solutions",
+  "Maintenance and Support",
+];

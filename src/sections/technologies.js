@@ -32,6 +32,7 @@ const Technologies = () => {
             <div className="h-72 relative">
               <Image
                 layout="fill"
+                priority={false}
                 objectFit="cover"
                 alt="Banner Image"
                 src={techImage}

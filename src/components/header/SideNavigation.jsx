@@ -3,37 +3,40 @@ import Image from "next/image";
 import logo from "../../assets/logo.svg";
 import closeIcon from "../../assets/close.png";
 import { Link as MenuLink } from "react-scroll";
-
-export default function SideNavigation({
-  navbarOpen,
-  setNavbarOpen,
-  menuItems,
-}) {
+import { menuItems } from "./menuItems";
+export default function SideNavigation({ navbarOpen, setNavbarOpen }) {
   return (
     <>
       {/* Background Layer When Side Nav is Open */}
       <div
         onClick={() => setNavbarOpen(false)}
-        className={`bg-black opacity-20 h-full z-20 w-full fixed ${
+        className={`bg-black opacity-20 h-full z-40 w-full fixed ${
           navbarOpen ? "block md:hidden" : "hidden"
         }`}
       ></div>
       {/* Side Navigation Bar */}
       <div
-        className={`h-full  ease-in-nav duration-300  bg-white fixed w-0 shadow-leftShadow z-50 md:hidden block top-0 right-0  ${
+        className={`h-full  ease-in-nav duration-300  bg-white fixed w-0 shadow-leftShadow z-40 md:hidden block top-0 right-0  ${
           navbarOpen ? "w-80" : "w-0 "
         } `}
       >
         <div className="flex px-5 my-7">
           {/* logo of the website*/}
           <div className=" grow ">
-            <Image width="140px" height="50px" src={logo} alt="naremis logo" />
+            <Image
+              priority={true}
+              width="140px"
+              height="50px"
+              src={logo}
+              alt="naremis logo"
+            />
           </div>
           {/* close nav button */}
           <button type="button" onClick={() => setNavbarOpen(false)}>
             <Image
               width="15px"
               height="15px"
+              priority={true}
               src={closeIcon}
               alt="close icon"
             />
