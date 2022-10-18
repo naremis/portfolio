@@ -26,6 +26,7 @@ const Portfolio = () => {
             <div className="transition ease-in-out md:hover:-translate-y-4">
               {" "}
               <Image
+                priority={false}
                 src={portfolio_1_img}
                 alt="Porfolio Image"
                 className="rounded-xl"

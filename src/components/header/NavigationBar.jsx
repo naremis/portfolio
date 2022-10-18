@@ -3,8 +3,9 @@ import Image from "next/image";
 import logo from "../../assets/logo.svg";
 import { Link as MenuLink } from "react-scroll";
 import MenuButton from "./MenuButton";
+import { menuItems } from "./menuItems";
 
-export default function NavigationBar({ setNavbarOpen, menuItems }) {
+export default function NavigationBar({ setNavbarOpen }) {
   const [selected, setSelected] = useState(menuItems[0].path);
   const calcDistance = () => {
     return `${menuItems.findIndex((e) => e.path === selected) * 4.5}rem`;
@@ -18,6 +19,7 @@ export default function NavigationBar({ setNavbarOpen, menuItems }) {
             <div className="items-center mt-0.5 md:mt-2 grow  w-100 ml-4">
               <Image
                 width="140px"
+                priority={true}
                 height="50px"
                 src={logo}
                 alt="naremis logo"
@@ -44,7 +46,7 @@ export default function NavigationBar({ setNavbarOpen, menuItems }) {
                 ))}
               </div>
               <span
-                className="block relative transition-all	ml-4				ease-in-out		 rounded mt-1 h-1  w-10 bg-orange-500 "
+                className="block relative transition-all	ml-3.5				ease-in-out		 rounded mt-1 h-1  w-10 bg-orange-500 "
                 style={{ left: calcDistance() }}
               ></span>
             </div>

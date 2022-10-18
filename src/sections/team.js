@@ -26,7 +26,12 @@ const Team = () => {
               <div className="bg-gray-200 md:h-64 h-76 mt-16 z-0 "></div>
             </div> */}
             <div className=" transition ease-in-out duration-75 hover:scale-105 cursor-pointer    ">
-              <Image src={elonMuskImg} alt="Banner Image" layout="responsive" />
+              <Image
+                priority={false}
+                src={elonMuskImg}
+                alt="Banner Image"
+                layout="responsive"
+              />
             </div>
 
             <div className="pt-5 text-slate-900	opacity-90	">
