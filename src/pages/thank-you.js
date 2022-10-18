@@ -14,7 +14,12 @@ export default function ThankYou() {
         in touch shortly. Thanks for reaching out!
       </p>
       <Link href="/">
-        <button className="mt-6 text-white tracking-wide font-semibold bg-orange-600 hover:bg-orange-700 md:w-3/6 w-4/6 w-full rounded-md opacity-90 h-10">
+        <button
+          onClick={() =>
+            document.querySelector("body").classList.toggle("overflow-hidden")
+          }
+          className="mt-6 text-white tracking-wide font-semibold bg-orange-600 hover:bg-orange-700 md:w-3/6 w-4/6 w-full rounded-md opacity-90 h-10"
+        >
           GO TO NAREMIS.COM
         </button>
       </Link>
