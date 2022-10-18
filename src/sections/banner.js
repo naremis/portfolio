@@ -26,13 +26,12 @@ const Banner = () => {
     <>
       {" "}
       <section id="home" className="table w-full -mt-16 pt-16">
-        <div className="md:w-7/12 w-full float-right mx-auto md:min-h-90  md:pt-10 pt-5 ">
+        <div className="md:w-7/12 w-full float-right mx-auto  md:pt-10 pt-5 ">
           <div className="md:block hidden">
             {" "}
             <Image
               src={bannerImage}
               priority={true}
-              layout="fixed"
               alt="Banner Image"
               height={460}
               width={780}
@@ -47,7 +46,7 @@ const Banner = () => {
             />
           </div>
         </div>
-        <div className="md:w-5/12 w-full md:float-left md:text-left text-center min-h-90  md:pl-6  pt-36 mx-auto	">
+        <div className="md:w-5/12 w-full md:float-left md:text-left text-center md:pl-6  pt-36 mx-auto	">
           <div className="md:min-w-lg	md:max-w-lg mx-auto px-5 md:px-0 	">
             <h1 className="md:text-5xl text-4xl font-semibold	text-slate-700">
               Build your audience & grow your business online smarter
