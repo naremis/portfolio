@@ -5,13 +5,13 @@ import bannerImage from "../assets/banner.svg";
 import Modal from "../components/Modal";
 import FormItem from "../components/FormItem";
 import { isMobile } from "react-device-detect";
-
 import { BUDGET_OPTIONS, SERVICES_OPTIONS } from "./constants";
+import { saveResponse } from "../apiCalls/googleForms";
+
 // import bannerImage from "../assets/header.jpg";
 // import testBannerBg from "../assets/background.svg";
 const Banner = () => {
   const router = useRouter();
-
   const [modalVisible, setModalVisible] = useState(false);
   const formData = useRef({
     firstName: "",
@@ -22,6 +22,15 @@ const Banner = () => {
     budget: "",
     projectDetails: "",
   });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("formSubmitted", e);
+    console.log("formData", formData.current);
+    await saveResponse(formData.current);
+    router.push("/thank-you");
+  };
+
   return (
     <>
       {" "}
@@ -106,14 +115,7 @@ const Banner = () => {
             </div>
           }
         >
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              console.log("formSubmitted", e);
-              console.log("formData", formData.current);
-              router.push("/thank-you");
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <div className="md:grid md:grid-cols-2 ">
               <FormItem
                 type="text"
