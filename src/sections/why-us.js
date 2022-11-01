@@ -7,7 +7,7 @@ const WhyUsSection = () => {
   return (
     <section
       id="whynaremis"
-      className="table relative w-full bg-gray-100  pt-6 md:pb-28 pb-20 text-center "
+      className="table relative w-full bg-gray-100 h-screen pt-6 md:pb-28 pb-20 text-center "
     >
       <div className="pb-8 text-center ">
         <h1 className="pb-4 text-4xl font-semibold">

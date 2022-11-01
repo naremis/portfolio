@@ -5,8 +5,11 @@ import { TECH_CONTENT } from "./constants";
 
 const Technologies = () => {
   return (
-    <section id="tech" className="table relative w-full md:mt-24 mt-10 ">
-      <div className="md:mt-24 mt-56 bg-gray-100 md:pb-28 pb-16  ">
+    <section
+      id="tech"
+      className="table relative w-full h-screen md:mt-0 mt-10 "
+    >
+      <div className="md:mt-24 mt-56 bg-gray-100 md:pb-28 pb-16 h-full ">
         {/* vector image */}
         <div className="-mt-20 w-full absolute h-20">
           <svg

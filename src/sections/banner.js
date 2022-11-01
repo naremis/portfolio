@@ -34,7 +34,7 @@ const Banner = () => {
   return (
     <>
       {" "}
-      <section id="home" className="table w-full -mt-16 pt-16">
+      <section id="home" className="table w-full h-screen -mt-16 pt-16">
         <div className="md:w-7/12 w-full float-right mx-auto  md:pt-10 pt-5 ">
           <div className="md:block hidden">
             {" "}

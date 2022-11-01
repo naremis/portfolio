@@ -7,6 +7,7 @@ import WhyUsSection from "../sections/why-us";
 import Technologies from "../sections/technologies";
 import Team from "../sections/team";
 import Portfolio from "../sections/portfolio";
+import { useEffect, useCallback, useState } from "react";
 
 export default function Home() {
   return (

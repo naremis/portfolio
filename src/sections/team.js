@@ -6,7 +6,7 @@ const Team = () => {
   return (
     <section
       id="team"
-      className="table relative w-full bg-white md:px-48 px-5 md:pt-6 pt-8 md:pb-28  pb-8  "
+      className="table relative w-full h-screen bg-white md:px-48 px-5 md:pt-6 pt-8 md:pb-28  pb-8  "
     >
       <div className="pb-8 opacity-70 text-center">
         <h1 className="pb-4 text-4xl font-semibold ">Our Team</h1>

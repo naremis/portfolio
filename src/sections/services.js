@@ -6,7 +6,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="table relative w-full bg-gray-100 md:px-48 px-5 md:pt-6 pt-8 md:pb-28 pb-8 text-center"
+      className="table relative w-full h-screen bg-gray-100  md:px-48 px-5 md:pt-6 pt-8 md:pb-28 pb-8 text-center"
     >
       <div className="pb-8 opacity-70">
         <h1 className="pb-4 text-4xl font-semibold">Our Services</h1>
