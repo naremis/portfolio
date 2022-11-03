@@ -7,27 +7,23 @@ import FormItem from "../components/FormItem";
 import { isMobile } from "react-device-detect";
 import { BUDGET_OPTIONS, SERVICES_OPTIONS } from "./constants";
 import { saveResponse } from "../apiCalls/googleForms";
+import { useForm } from "react-hook-form";
 
 // import bannerImage from "../assets/header.jpg";
 // import testBannerBg from "../assets/background.svg";
 const Banner = () => {
   const router = useRouter();
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [modalVisible, setModalVisible] = useState(false);
-  const formData = useRef({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    service: "",
-    budget: "",
-    projectDetails: "",
-  });
+  const initialEmail = useRef("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("formSubmitted", e);
-    console.log("formData", formData.current);
-    await saveResponse(formData.current);
+  const onSubmit = async (data) => {
+    await saveResponse(data);
     router.push("/thank-you");
   };
 
@@ -79,7 +75,7 @@ const Banner = () => {
               <div className="md:w-4/6 w-full">
                 <input
                   onChange={(event) =>
-                    (formData.current.email = event.target.value)
+                    (initialEmail.current = event.target.value)
                   }
                   type="email"
                   id="email-banner"
@@ -115,88 +111,75 @@ const Banner = () => {
             </div>
           }
         >
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="md:grid md:grid-cols-2 ">
               <FormItem
+                register={register}
+                error={errors.firstName}
                 type="text"
                 label="First Name"
-                onChange={(value) => {
-                  formData.current.firstName = value;
-                }}
-                value={formData.current.firstName}
                 name="firstName"
                 placeholder="First Name"
-                required
+                isRequired
               />
               <FormItem
+                register={register}
+                error={errors.lastName}
                 type="text"
                 label="Last Name"
-                onChange={(value) => {
-                  formData.current.lastName = value;
-                }}
-                value={formData.current.lastName}
                 name="lastName"
                 placeholder="Last Name"
-                required
+                isRequired
               />
               <FormItem
+                register={register}
+                error={errors.email}
                 type="email"
                 label="Email"
-                value={formData.current.email}
-                onChange={(value) => {
-                  formData.current.email = value;
-                }}
+                defaultValue={initialEmail.current}
                 name="email"
                 placeholder="Email Address"
-                required
+                isRequired
               />
               <FormItem
+                error={errors.phone}
+                control={control}
                 type="tel"
-                label="Phone"
-                value={formData.current.phone}
-                onChange={(value) => {
-                  formData.current.phone = value;
-                }}
+                label="Phone Number"
                 name="phone"
                 placeholder="(999) 999-9999"
-                required
+                isRequired
               />
 
               <FormItem
+                error={errors.services}
+                register={register}
                 type="select"
                 label="Select Services"
                 options={SERVICES_OPTIONS}
                 name="services"
-                value={formData.current.service}
-                onChange={(value) => {
-                  formData.current.service = value;
-                }}
                 placeholder="Select Service"
-                required
+                isRequired
               />
               <FormItem
+                error={errors.budget}
+                register={register}
                 type="select"
                 label="Budget in USD"
                 options={BUDGET_OPTIONS}
                 name="budget"
-                value={formData.current.budget}
-                onChange={(value) => {
-                  formData.current.budget = value;
-                }}
                 placeholder="Select Your Option"
-                required
+                isRequired
               />
             </div>
             <FormItem
+              error={errors.projectDetail}
+              register={register}
               type="multiline"
-              label="Project Details"
-              name="phone"
-              value={formData.current.projectDetails}
-              onChange={(value) => {
-                formData.current.projectDetails = value;
-              }}
+              label="Project Detail"
+              name="projectDetail"
               placeholder="Please provide a brief description of your project."
-              required
+              isRequired
             />
 
             <button

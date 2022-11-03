@@ -11,7 +11,7 @@ const GOOGLE_FORM_KEYS = {
   phone: "entry.884271054",
   service: "entry.1111044604",
   budget: "entry.908464186",
-  projectDetails: "entry.1647559967",
+  projectDetail: "entry.1647559967",
 };
 
 export const saveResponse = async (data) => {

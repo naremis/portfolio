@@ -1,16 +1,21 @@
 import React from "react";
+import "react-phone-number-input/style.css";
+import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
+import { isValidPhoneNumber } from "react-phone-number-input";
 
 export const FormItem = ({
   type,
   label,
+  error,
   name,
   placeholder,
-  required,
-  onChange,
-  value,
+  isRequired,
+  register,
+  control,
+  defaultValue,
   options,
 }) => {
-  if (type === "text" || type === "email" || type === "tel")
+  if (type === "text" || type === "email")
     return (
       <div className="md:mx-4 mb-2">
         <label className="form-label" htmlFor={name}>
@@ -18,22 +23,48 @@ export const FormItem = ({
         </label>
         <input
           className="form-input h-10"
-          id={name}
-          defaultValue={value}
-          onChange={(event) => onChange(event.target.value)}
+          defaultValue={defaultValue ?? ""}
           type={type}
-          pattern={type === "tel" ? "[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}" : "*"}
           placeholder={placeholder}
-          required={required ? true : false}
+          {...register(name, {
+            required: isRequired ? true : false,
+          })}
         />
-        {type === "tel" && (
-          <p className="mt-1 ml-2  text-xs italic text-gray-400">
-            {`e.g. "(012) 345-6789"`}
-          </p>
+
+        {error ? (
+          error.type === "required" ? (
+            <p className="form-input-error">{`${label} is required`}</p>
+          ) : (
+            <p className="form-input-error">{`Invalid ${label}`}</p>
+          )
+        ) : (
+          ""
         )}
-        {/* {required && (
-          <p className="form-input-error">{`${label} field is required`}</p>
-        )} */}
+      </div>
+    );
+  if (type === "tel")
+    return (
+      <div className="md:mx-4 mb-2">
+        <label className="form-label" htmlFor={name}>
+          {label}
+        </label>
+        <PhoneInputWithCountry
+          international
+          name={name}
+          control={control}
+          defaultCountry="US"
+          placeholder={placeholder}
+          rules={{ required: true, validate: isValidPhoneNumber }}
+        />
+        {error ? (
+          error.type === "required" ? (
+            <p className="form-input-error">{`${label} is required`}</p>
+          ) : (
+            <p className="form-input-error">{`Invalid ${label}`}</p>
+          )
+        ) : (
+          ""
+        )}
       </div>
     );
   if (type === "select")
@@ -44,10 +75,8 @@ export const FormItem = ({
         </label>
         <select
           className="form-input h-10 "
-          id={name}
           defaultValue={""}
-          onChange={(event) => onChange(event.target.value)}
-          required={required ? true : false}
+          {...register(name, { required: isRequired ? true : false })}
         >
           <option value="" disabled>
             {placeholder}
@@ -59,9 +88,15 @@ export const FormItem = ({
           ))}
         </select>
 
-        {/* {required && (
-          <p className="form-input-error">{`${label} field is required`}</p>
-        )} */}
+        {error ? (
+          error.type === "required" ? (
+            <p className="form-input-error">{`${label} is required`}</p>
+          ) : (
+            <p className="form-input-error">{`Invalid ${label}`}</p>
+          )
+        ) : (
+          ""
+        )}
       </div>
     );
 
@@ -73,15 +108,19 @@ export const FormItem = ({
         </label>
         <textarea
           className="form-input resize-none"
-          required={required ? true : false}
-          id={name}
+          {...register(name, { required: isRequired ? true : false })}
           rows="7"
           placeholder={placeholder}
-          onChange={(event) => onChange(event.target.value)}
         ></textarea>
-        {/* {required && (
-          <p className="form-input-error">{`${label} field is required`}</p>
-        )} */}
+        {error ? (
+          error.type === "required" ? (
+            <p className="form-input-error">{`${label} is required`}</p>
+          ) : (
+            <p className="form-input-error">{`Invalid ${label}`}</p>
+          )
+        ) : (
+          ""
+        )}
       </div>
     );
 };

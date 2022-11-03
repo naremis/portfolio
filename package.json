@@ -19,6 +19,8 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-google-forms-hooks": "^1.2.4",
+    "react-hook-form": "^7.39.1",
+    "react-phone-number-input": "^3.2.12",
     "react-scroll": "^1.8.8",
     "sharp": "^0.30.7"
   },
