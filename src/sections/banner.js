@@ -6,13 +6,15 @@ import Modal from "../components/Modal";
 import FormItem from "../components/FormItem";
 import { isMobile } from "react-device-detect";
 import { BUDGET_OPTIONS, SERVICES_OPTIONS } from "./constants";
-import { saveResponse } from "../apiCalls/googleForms";
+// import { saveResponse } from "../apiCalls/googleForms";
 import { useForm } from "react-hook-form";
-
+import { saveResponse } from "../apiCalls/googleSheet";
 // import bannerImage from "../assets/header.jpg";
 // import testBannerBg from "../assets/background.svg";
+
 const Banner = () => {
   const router = useRouter();
+  const [load, setLoad] = useState(false);
   const {
     control,
     register,
@@ -23,8 +25,9 @@ const Banner = () => {
   const initialEmail = useRef("");
 
   const onSubmit = async (data) => {
-    await saveResponse(data);
-    router.push("/thank-you");
+    setLoad(true);
+    if (await saveResponse(data)) router.push("/thank-you");
+    else setLoad(false);
   };
 
   return (
@@ -183,10 +186,11 @@ const Banner = () => {
             />
 
             <button
+              disabled={load}
               type="submit"
               className="md:mx-4 md:float-right font-medium tracking-wide text-white bg-orange-600 hover:bg-orange-700 md:w-28 w-full rounded-md h-10"
             >
-              {/* <span className="fa fa-spinner fa-spin mr-4"></span> */}
+              {load && <span className="fa fa-spinner fa-spin mr-4"></span>}
               Submit
             </button>
           </form>
