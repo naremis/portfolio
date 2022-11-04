@@ -7,7 +7,7 @@
   }
   html,
   body {
-    @apply h-full;
+    @apply h-full md:overflow-x-clip;
   }
   .form-label {
     @apply text-slate-500 text-sm mb-1 tracking-wide;
@@ -17,6 +17,24 @@
   }
   .form-input-error {
     @apply text-red-500 text-xs italic -mb-2 mt-1;
+  }
+  .banner-animate {
+    animation-name: banner-animate;
+    animation-duration: 0.3s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+  }
+  .banner-form-animate {
+    animation-name: banner-form-animate;
+    animation-duration: 0.5s;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
+  }
+  .banner-img-animate {
+    animation-name: banner-img-animate;
+    animation-duration: 0.5s;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
   }
 }
 .embla {
@@ -72,5 +90,32 @@
     display: grid;
     overflow-y: scroll;
     padding: 1.5rem;
+  }
+}
+
+@keyframes banner-animate {
+  from {
+    @apply mt-16 opacity-0;
+  }
+  to {
+    @apply mt-0 opacity-100;
+  }
+}
+
+@keyframes banner-img-animate {
+  from {
+    @apply -right-20 opacity-0;
+  }
+  to {
+    @apply right-0 opacity-100 relative;
+  }
+}
+
+@keyframes banner-form-animate {
+  from {
+    @apply mt-24 opacity-0;
+  }
+  to {
+    @apply mt-8 opacity-100 relative;
   }
 }

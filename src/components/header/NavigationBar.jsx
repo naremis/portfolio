@@ -4,9 +4,12 @@ import logo from "../../assets/logo.svg";
 import { Link as MenuLink, scrollSpy, scroll, Events } from "react-scroll";
 import MenuButton from "./MenuButton";
 import { menuItems } from "./menuItems";
+import { useAppContext } from "../../context";
 
 export default function NavigationBar({ setNavbarOpen }) {
   const [selected, setSelected] = useState(menuItems[0].path);
+  const [activeSection, setActiveSection] = useAppContext();
+
   const scrollRef = useRef(menuItems[0].path);
   const calcDistance = () => {
     return `${menuItems.findIndex((e) => e.path === selected) * 4.5}rem`;
@@ -35,10 +38,14 @@ export default function NavigationBar({ setNavbarOpen }) {
         return true;
       }
     });
-    if (currentSection) setSelected(currentSection.path);
+    if (currentSection) {
+      setSelected(currentSection.path);
+      setActiveSection(currentSection.path);
+    }
   }, []);
   useEffect(() => {
     window.addEventListener("scroll", onScroll, true);
+    setActiveSection(menuItems[0].path);
   }, []);
   return (
     <nav

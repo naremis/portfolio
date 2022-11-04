@@ -4,13 +4,12 @@ import { useRouter } from "next/router";
 import bannerImage from "../assets/banner.svg";
 import Modal from "../components/Modal";
 import FormItem from "../components/FormItem";
-import { isMobile } from "react-device-detect";
 import { BUDGET_OPTIONS, SERVICES_OPTIONS } from "./constants";
-// import { saveResponse } from "../apiCalls/googleForms";
 import { useForm } from "react-hook-form";
 import { saveResponse } from "../apiCalls/googleSheet";
 // import bannerImage from "../assets/header.jpg";
 // import testBannerBg from "../assets/background.svg";
+// import { saveResponse } from "../apiCalls/googleForms";
 
 const Banner = () => {
   const router = useRouter();
@@ -23,7 +22,6 @@ const Banner = () => {
   } = useForm();
   const [modalVisible, setModalVisible] = useState(false);
   const initialEmail = useRef("");
-
   const onSubmit = async (data) => {
     setLoad(true);
     if (await saveResponse(data)) router.push("/thank-you");
@@ -35,7 +33,7 @@ const Banner = () => {
       {" "}
       <section id="home" className="table w-full h-screen -mt-16 pt-16">
         <div className="md:w-7/12 w-full float-right mx-auto  md:pt-10 pt-5 ">
-          <div className="md:block hidden">
+          <div className="md:block hidden opacity-0 absolute  banner-img-animate">
             {" "}
             <Image
               src={bannerImage}
@@ -54,9 +52,13 @@ const Banner = () => {
             />
           </div>
         </div>
-        <div className="md:w-5/12 w-full md:float-left md:text-left text-center md:pl-6  pt-36 mx-auto	">
+        <div
+          className={
+            "md:w-5/12 w-full md:float-left md:text-left text-center md:pl-6 pt-36 mx-auto md:mt-20 md:opacity-0 md:banner-animate"
+          }
+        >
           <div className="md:min-w-lg	md:max-w-lg mx-auto px-5 md:px-0 	">
-            <h1 className="md:text-5xl text-4xl font-semibold	text-slate-700">
+            <h1 className={"md:text-5xl text-4xl font-semibold text-slate-700"}>
               Build your audience & grow your business online smarter
             </h1>
             <h2 className="md:text-lg mt-4 text-base leading-relaxed opacity-70">
@@ -66,7 +68,7 @@ const Banner = () => {
             </h2>
 
             <form
-              className="block md:mt-8 mt-4 md:flex"
+              className="block md:mt-8 mt-4 md:flex md:opacity-0 md:banner-form-animate"
               onSubmit={(e) => {
                 e.preventDefault();
                 setModalVisible(true);

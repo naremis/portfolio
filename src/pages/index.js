@@ -7,18 +7,20 @@ import WhyUsSection from "../sections/why-us";
 import Technologies from "../sections/technologies";
 import Team from "../sections/team";
 import Portfolio from "../sections/portfolio";
-import { useEffect, useCallback, useState } from "react";
+import { AppWrapper } from "../context";
 
 export default function Home() {
   return (
-    <Layout>
-      <SEO />
-      <Banner />
-      <Technologies />
-      <WhyUsSection />
-      <Services />
-      <Team />
-      <Portfolio />
-    </Layout>
+    <AppWrapper>
+      <Layout>
+        <SEO />
+        <Banner />
+        <Technologies />
+        <WhyUsSection />
+        <Services />
+        <Team />
+        <Portfolio />
+      </Layout>
+    </AppWrapper>
   );
 }
